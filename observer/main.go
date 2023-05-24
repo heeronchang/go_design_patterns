@@ -23,12 +23,12 @@ type eventObserver struct {
 	id int
 }
 
-type eventNotifier struct {
-	observers map[Observer]struct{}
-}
-
 func (o *eventObserver) OnNotify(e Event) {
 	fmt.Printf("%d:%d\n", o.id, e.Data)
+}
+
+type eventNotifier struct {
+	observers map[Observer]struct{}
 }
 
 func (o *eventNotifier) Register(l Observer) {
